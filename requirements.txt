@@ -1,0 +1,16 @@
+appdirs==1.4.0
+dj-database-url==0.4.1
+Django==1.10.5
+django-angular==0.8.4
+django-cors-headers==2.0.2
+django-filter==1.0.1
+djangorestframework==3.5.3
+gunicorn==19.6.0
+Markdown==2.6.8
+npm==0.1.1
+optional-django==0.1.0
+packaging==16.8
+psycopg2==2.6.2
+pyparsing==2.1.10
+six==1.10.0
+whitenoise==3.3.0
