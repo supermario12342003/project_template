@@ -1,7 +1,7 @@
 {
-  "name": "angular2-quickstart",
+  "name": "client",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "client in Angular2",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "docker-build": "docker build -t ng2-quickstart .",
@@ -16,7 +16,8 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings",
-    "webdriver:update": "webdriver-manager update"
+    "webdriver:update": "webdriver-manager update",
+    "run": "tsc -w & less-watch-compiler"
   },
   "keywords": [],
   "author": "",
@@ -52,12 +53,13 @@
     "karma-cli": "^0.1.2",
     "karma-htmlfile-reporter": "^0.2.2",
     "karma-jasmine": "^0.3.8",
+    "less": "^2.7.2",
+    "less-watch-compiler": "^1.4.2",
     "lite-server": "^2.2.0",
     "lodash": "^4.11.1",
     "protractor": "^3.3.0",
     "rimraf": "^2.5.2",
     "tslint": "^3.7.4"
-
   },
   "repository": {}
 }
