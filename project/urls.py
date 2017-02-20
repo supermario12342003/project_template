@@ -17,6 +17,7 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
+from django.views.static import serve
 from core.views import SampleView, AngularApp, NgTemplateView
 
 ngurls = [
@@ -27,5 +28,7 @@ ngurls = [
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^sample/', include(ngurls)),
-    url(r'^(?!ng/).*$', AngularApp.as_view(), name="angular_app"),
-] + static(settings.ANGULAR_URL, document_root=settings.ANGULAR_ROOT)
+    url(r'^' + settings.STATIC_URL + '(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT, }),
+    url(r'^' + settings.ANGULAR_URL + '/(?P<path>.*)$', serve, {'document_root': settings.ANGULAR_ROOT, }),
+    url(r'^(?!ng/)(?!static/).*$', AngularApp.as_view(), name="angular_app"),
+]
