@@ -1,16 +1,21 @@
-import { provideRouter, RouterConfig } from '@angular/router';
-import {Component1Component} from "./component1.component";
-import {Component2Component} from "./component2.component";
-import {DjangoComponent} from "./django.component";
+import { NgModule }            				from '@angular/core';
+import { RouterModule, Routes }				from '@angular/router';
+import { LandingComponent }					from "./landing/landing.component";
+import { Component2Component }				from "./component2.component";
+import { DjangoComponent }					from "./django.component";
+import { PageNotFoundComponent }		    from "./page-not-found/page-not-found.component";
 
 
-const routes: RouterConfig = [
-  {path: '',redirectTo: '/component1',pathMatch: 'full'},
-  { path: 'component1', component: Component1Component },
+const routes: Routes = [
+  { path: '', component: LandingComponent },
   { path: 'component2', component: Component2Component },
   { path: 'djcomponent', component: DjangoComponent },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '404' },
 ];
 
-export const appRouterProviders = [
-  provideRouter(routes)
-];
+@NgModule({
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
+})
+export class AppRoutingModule {}
