@@ -16,7 +16,7 @@
     <script src="{{ STATIC_URL }}node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="{{ STATIC_URL }}systemjs.config.js"></script>
     <script>
-      System.import('/static/app/main').catch(function(err){
+      System.import('{{ STATIC_URL }}app/main').catch(function(err){
           console.error(err);
       });
     </script>
