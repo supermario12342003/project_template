@@ -11,4 +11,7 @@ import { Component }        from '@angular/core';
         </div>
     `,
 })
-export class AppComponent {}
+export class AppComponent {
+	//todo maybe init here to check validity of token
+
+}
