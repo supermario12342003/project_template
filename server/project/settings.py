@@ -10,8 +10,8 @@ BASE_BASE_DIR = os.path.dirname(BASE_DIR)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DATABASE_NAME', '-ossvleqdob%w2z+*u+k5d9t^=ml+)ugpjsdc_$%#zi^4lo!db')
 
-DEBUG = os.environ.get('DEBUG', False)
-DEBUG_LOCAL = os.environ.get('DEBUG_LOCAL', False)
+DEBUG = bool(os.environ.get('DEBUG', False) == 'True')
+DEBUG_LOCAL = bool(os.environ.get('DEBUG_LOCAL', False) == 'True')
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 INSTALLED_APPS = [
@@ -170,13 +170,14 @@ if DEBUG:
 	STATIC_URL = '/static/'
 	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 else:
-	AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-	STATIC_URL = '/static/'
-	STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
-	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-	#STATIC_ROOT = '/static/'
-	#STATICFILES_STORAGE = 'core.utils.s3.StaticRootS3BotoStorage'
-	#STATIC_URL = 'http://%s.s3.amazonaws.com%s'  % (AWS_STORAGE_BUCKET_NAME, STATIC_ROOT)
+	print "hosting static on s3"
+	AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME_PREPROD']
+	#STATIC_URL = '/static/'
+	#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+	#TATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+	STATIC_ROOT = '/static/'
+	STATICFILES_STORAGE = 'core.utils.s3.StaticRootS3BotoStorage'
+	STATIC_URL = 'http://%s.s3.amazonaws.com%s'  % (AWS_STORAGE_BUCKET_NAME, STATIC_ROOT)
 
 
 MEDIA_ROOT = '/media/'
