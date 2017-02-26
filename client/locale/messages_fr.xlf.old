@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="ng2.template" source-language="en">
+    <body>
+      <trans-unit datatype="html" id="af2ccf4b5dba59616e92cf1531505af02da8f6d2">
+        <source>Hello i18n!</source>
+        <target>Bonjour i18n!</target>
+        <note from="description" priority="1">An introduction header for this sample</note>
+        <note from="meaning" priority="1">User welcome</note>
+      </trans-unit>
+    <trans-unit datatype="html" id="fdd33e5549b10107f2b4a4d7a688ddede239bf25">
+        <source>Goodbye i18n!</source>
+        <target />
+      </trans-unit>
+    <trans-unit datatype="html" id="1994dc746dfc091a5175bfab549e6d5c3b5a5d3c">
+        <source>Again!! i18n!</source>
+        <target />
+      </trans-unit>
+    <trans-unit datatype="html" id="d5ddc67255806c51800e574e56f764d0e3be0b20">
+        <source>Gobye i18n!</source>
+        <target />
+      </trans-unit>
+      </body>
+  </file>
+</xliff>

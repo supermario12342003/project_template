@@ -1,0 +1,23 @@
+ <div class="container-fluid">
+ 	<div class="row">
+ 		<div class="profile-nav col-md-6 col-md-offset-3">
+	 		<ul class="nav nav-tabs">
+			  <li role="presentation">
+			  	<a [routerLink]="['/profile']" routerLinkActive="active" class="btn btn-link">Profile</a>
+			  </li>
+			  <li role="presentation">
+			  	<a [routerLink]="['edit']"  routerLinkActive="active" class="btn btn-link">Edit Profile</a>
+			  </li>
+			  <li role="presentation">
+			  	<a [routerLink]="['changepassword']"  routerLinkActive="active" class="btn btn-link">Change Password</a>
+			  </li>
+			  <!--
+			  <li role="presentation">
+			  	<a [routerLink]="['logout']"  routerLinkActive="active" class="btn btn-link">Logout</a>
+			  </li>
+			  -->
+			</ul>
+		</div>
+</div>
+<router-outlet>
+</router-outlet>

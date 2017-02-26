@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.js.map",
+				"*.metadata.json"
+			],
+			"path": "/Users/mchoong/Documents/mandk"
+		},
+		{
+			"path": "/Users/mchoong/Downloads/Search and Go Main Files"
+		}
+	]
+}

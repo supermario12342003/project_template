@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-24 09:58+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: account/admin.py:15
+msgid "A user with that email already exists."
+msgstr ""
+
+#: account/admin.py:16
+msgid "The two password fields didn't match."
+msgstr ""
+
+#: account/admin.py:19 account/admin.py:65
+msgid "Password"
+msgstr ""
+
+#: account/admin.py:21
+msgid "Password confirmation"
+msgstr ""
+
+#: account/admin.py:23
+msgid "Enter the same password as above, for verification."
+msgstr ""
+
+#: account/admin.py:66
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user's "
+"password, but you can change the password using <a href=\"password/\">this "
+"form</a>."
+msgstr ""
+
+#: account/admin.py:91
+msgid "Personal info"
+msgstr ""
+
+#: account/admin.py:92
+msgid "Permissions"
+msgstr ""
+
+#: account/admin.py:94
+msgid "Important dates"
+msgstr ""
+
+#: account/models.py:43
+msgid "email address"
+msgstr ""
+
+#: account/models.py:44
+msgid "first name"
+msgstr ""
+
+#: account/models.py:45
+msgid "last name"
+msgstr ""
+
+#: account/models.py:46
+msgid "staff status"
+msgstr ""
+
+#: account/models.py:47
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: account/models.py:49
+msgid "active"
+msgstr ""
+
+#: account/models.py:50
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: account/models.py:52
+msgid "date joined"
+msgstr ""
+
+#: account/models.py:56
+msgid "address"
+msgstr ""
+
+#: account/models.py:63
+msgid "user"
+msgstr ""
+
+#: account/models.py:64
+msgid "users"
+msgstr ""
+
+#: account/serializers.py:22
+msgid "Phone should at least 10 digits including country code, eg 3301234567"
+msgstr ""
+
+#: account/views.py:62 account/views.py:82
+msgid "Email/password combination invalid."
+msgstr "français ici"

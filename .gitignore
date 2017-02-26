@@ -1,5 +1,6 @@
 *.pyc
 .env
 .DS_Store
+*.metadata.json
 staticfiles
 project/staticfiles

@@ -1,1 +1,93 @@
 @import "../../node_modules/bootstrap/less/bootstrap.less";
+
+@landing_background_height: 700px;
+@navbar_height: 50px;
+
+a {
+	cursor: pointer;
+}
+
+.landing-background {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    height: @landing_background_height;
+}
+
+.landing-background-content {
+	position: relative;
+	text-align: center;
+}
+
+.landing-content {
+    position: absolute;
+    width: 100%;
+    top: @landing_background_height;
+}
+
+.landing-background-img {
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    height: @landing_background_height;
+    width: 100%;
+    z-index: -1;
+
+}
+
+.landing-search-bar input {
+   	height: 40px;
+
+}
+.landing-search-bar-col {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.landing-search-bar {
+	margin-top:30px;
+}
+
+.landing-search-text input {
+    color: rgb(100, 100, 100);
+    height: 49px;
+    column-rule-color: rgb(100, 100, 100);
+    perspective-origin: 175.328px 24.5px;
+    transform-origin: 175.328px 24.5px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal normal normal 14px / normal Poppins, sans-serif;
+    outline: rgb(100, 100, 100) none 0px;
+    padding: 12px 18px;
+}
+
+
+.landing-title {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 30px;
+}
+
+.landing-title-description {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 20px;
+}
+
+.landing-search-button {
+    margin-top: 30px;
+}
+
+.nav .btn {
+	margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.profile-nav {
+    text-align: center;
+}
+
+.navbar-dummy {
+    height: @navbar_height;
+}
