@@ -55,6 +55,7 @@ class BaseUser(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField(validators=[phone_regex], max_length=20, blank=True, null=True)
     address = models.CharField(_('address'), max_length=140, blank=True)
     photo = models.CharField(max_length=100, blank=True)
+    reset_token = models.CharField(max_length=100, blank=True)
 
     objects = UserManager()
 

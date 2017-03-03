@@ -19,6 +19,10 @@ from rest_framework.parsers import FormParser,MultiPartParser
 from core.utils.s3 import upload
 from django.conf import settings
 from django.template.defaultfilters import filesizeformat
+from core.utils.email import send_email
+from django.contrib.sites.shortcuts import get_current_site
+import base64
+import uuid
 import time
 
 
@@ -71,6 +75,27 @@ class AccountViewSet(viewsets.ModelViewSet):
 					request.user.save()
 					return Response({"success": True})
 		return Response({"errors": {"old_password": [error],
+				}
+			},
+			status=status.HTTP_400_BAD_REQUEST)
+
+	@list_route(methods=['post'], permission_classes=[AllowAny])
+	def resetpassword(self, request, format=None):
+		error = _("unknown error")
+		token = request.data.get('reset_token')
+		email = request.data.get('email')
+		new_password = request.data.get('new_password')
+		user = Account.objects.get(email=email)
+		if not token or not email or not user or token != user.reset_token:
+			error = _("This reset link is invalid or expired")
+		elif not new_password:
+			error = _('New password is required')
+		else:
+			user.set_password(new_password)
+			user.reset_token = ''
+			user.save()
+			return Response({"success": True})
+		return Response({"errors": {"new_password": [error],
 				}
 			},
 			status=status.HTTP_400_BAD_REQUEST)
@@ -131,3 +156,31 @@ class AccountViewSet(viewsets.ModelViewSet):
 				}
 			},
 			status=status.HTTP_400_BAD_REQUEST)
+
+
+	@list_route(methods=['post',], permission_classes=[AllowAny])
+	def forgotpassword(self, request, format=None):
+		error = _("unknown error")
+		email = request.data.get('email', None)
+		if not email:
+			error = _("Please provide an valid email address")
+		else:
+			user = Account.objects.get(email=email)
+			if not user:
+				error = _("No account with that email address is found")
+			else:
+				user.reset_token = base64.urlsafe_b64encode(uuid.uuid4().bytes).replace('=','x')
+				link = get_current_site(request).domain + "/profile/reset_password?email=" + user.email + "&token=" + user.reset_token
+				send_email("Password Recovery",
+					{'link':link},
+					[email],
+					'emails/forgot_password.txt',
+				)
+				user.save()
+			return Response({"success": True})
+		return Response({"errors": {
+					"picture": [error],
+				}
+			},
+			status=status.HTTP_400_BAD_REQUEST)
+

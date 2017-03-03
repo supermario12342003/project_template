@@ -1,22 +1,20 @@
-{% load static %}
-
 <html>
   <head>
     <title>MandK</title>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ STATIC_URL }}node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}app/css/styles.css">
-    <base href="/">
+    <link rel="stylesheet" href="static/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="static/app/css/styles.css">
     <!-- Polyfill(s) for older browsers -->
-    <script src="{{ STATIC_URL }}node_modules/core-js/client/shim.min.js"></script>
-    <script src="{{ STATIC_URL }}node_modules/zone.js/dist/zone.js"></script>
-    <script src="{{ STATIC_URL }}node_modules/systemjs/dist/system.src.js"></script>
-    <script src="{{ STATIC_URL }}node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="{{ STATIC_URL }}node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="{{ STATIC_URL }}systemjs.config.js"></script>
+    <script src="static/node_modules/core-js/client/shim.min.js"></script>
+    <script src="static/node_modules/zone.js/dist/zone.js"></script>
+    <script src="static/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="static/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="static/systemjs.config.js"></script>
     <script>
-      System.import('{{ STATIC_URL }}app/main').catch(function(err){
+      System.import('app/main').catch(function(err){
           console.error(err);
       });
     </script>

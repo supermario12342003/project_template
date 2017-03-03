@@ -152,8 +152,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+if not DEBUG_LOCAL:
+	SECURE_SSL_REDIRECT = True
+	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Custom user
 AUTH_USER_MODEL = 'account.Account'
@@ -167,20 +168,10 @@ STATICFILES_DIRS = [
 	os.path.join(BASE_BASE_DIR, 'client/'),
 ]
 
-if DEBUG:
-	AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME_PREPROD']
-	STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
-	STATIC_URL = '/static/'
-	STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-else:
-	print "hosting static on s3"
-	AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME_PREPROD']
-	#STATIC_URL = '/static/'
-	#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
-	#TATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-	STATIC_ROOT = '/static/'
-	STATICFILES_STORAGE = 'core.utils.s3.StaticRootS3BotoStorage'
-	STATIC_URL = 'http://%s.s3.amazonaws.com%s'  % (AWS_STORAGE_BUCKET_NAME, STATIC_ROOT)
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME_PREPROD']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 MEDIA_ROOT = '/media/'
@@ -191,3 +182,11 @@ AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 MEDIA_URL = 'http://%s.s3.amazonaws.com%s'  % (AWS_STORAGE_BUCKET_NAME, MEDIA_ROOT)
 
 TASK_UPLOAD_FILE_MAX_SIZE = 512000
+
+
+EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+EMAIL_HOST = 'email-smtp.us-west-2.amazonaws.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'AKIAJ3EDLCTF6NWUIKXQ'
+EMAIL_HOST_PASSWORD = 'AleZIy99IeyRbzVkjZhb/TbaUh1MRJjGtlqFcDLyasEY'
+DEFAULT_EMAIL = 'mandk022017@gmail.com'
