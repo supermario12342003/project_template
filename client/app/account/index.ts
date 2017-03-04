@@ -2,5 +2,8 @@ export * from './login.component';
 export * from './register.component';
 export * from './profile.component';
 export * from './edit-profile.component';
+export * from './profile-nav.component';
 export * from './logout.component';
 export * from './change-password.component';
+export * from './forgot-password.component';
+export * from './reset-password.component';

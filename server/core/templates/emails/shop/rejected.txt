@@ -1,0 +1,9 @@
+Your shop has been rejected by us.
+
+reason:
+
+" {{reject_reason}} "
+
+Click here to see it:
+
+{{link | safe}}

@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild} 			from '@angular/core';
 import { Router, ActivatedRoute }				from '@angular/router';
 import { FormBuilder, FormGroup, Validators } 	from '@angular/forms';
-import { AuthenticationService, AlertService, User}	from '../_services/index';
+import { AuthenticationService, AlertService}	from '../_services/index';
+import { User }									from '../_models/user.model';
+
 
 @Component({
     moduleId: module.id,

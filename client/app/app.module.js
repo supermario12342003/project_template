@@ -10,18 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
-var http_1 = require('@angular/http');
 var app_routing_module_1 = require('./app-routing.module');
 var app_component_1 = require('./app.component');
 var nav_component_1 = require("./nav/nav.component");
 var landing_component_1 = require("./landing/landing.component");
 var page_not_found_component_1 = require("./page-not-found/page-not-found.component");
 var index_1 = require('./_directives/index');
-var auth_guard_1 = require('./_guards/auth.guard');
-var core_2 = require('angular2-cookie/core');
+var account_module_1 = require("./account/account.module");
 var index_2 = require('./_services/index');
-var index_3 = require('./account/index');
+var core_2 = require('angular2-cookie/core');
+var authentication_service_1 = require('./_services/authentication.service');
+var shared_module_1 = require('./shared/shared.module');
+var shop_module_1 = require('./shop/shop.module');
+var product_module_1 = require('./product/product.module');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,10 +30,11 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule,
-                forms_1.ReactiveFormsModule,
-                http_1.HttpModule,
                 app_routing_module_1.AppRoutingModule,
+                account_module_1.AccountModule,
+                shared_module_1.SharedModule,
+                shop_module_1.ShopModule,
+                product_module_1.ProductModule,
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -40,20 +42,11 @@ var AppModule = (function () {
                 landing_component_1.LandingComponent,
                 page_not_found_component_1.PageNotFoundComponent,
                 index_1.AlertComponent,
-                index_3.ProfileComponent,
-                index_3.LoginComponent,
-                index_3.RegisterComponent,
-                index_3.EditProfileComponent,
-                index_3.LogoutComponent,
-                index_3.ProfileNavComponent,
-                index_3.ChangePasswordComponent,
             ],
             providers: [
-                auth_guard_1.AuthGuard,
-                index_2.AlertService,
+                authentication_service_1.AuthenticationService,
                 core_2.CookieService,
-                index_2.AuthenticationService,
-                index_2.AccountService,
+                index_2.AlertService,
                 index_2.HttpServiceProvider,
                 index_2.XSRFStrategyProvider
             ],

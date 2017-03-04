@@ -20,7 +20,7 @@ var AuthGuard = (function () {
         if (this.authentication.isAuthenticated())
             return true;
         // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+        this.router.navigate(['profile/login'], { queryParams: { returnUrl: state.url } });
         return false;
     };
     AuthGuard = __decorate([

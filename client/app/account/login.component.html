@@ -15,6 +15,9 @@
           		{{ formErrors.password }}
         	</div>
         </div>
+        <div class="form-group">
+            <a [routerLink]="['/profile/forgot_password']" class="btn btn-link">forgot password</a>
+        </div>
         <!--
         <div class="checkbox">
 			<label>
@@ -24,7 +27,7 @@
         -->
         <div class="form-group">
             <button [disabled]="loading || !myForm.valid" type="submit" class="btn btn-primary">Login</button>
-        	<a [routerLink]="['/register']" [queryParams]="{returnUrl: returnUrl}" class="btn btn-link">Register</a>
+        	<a [routerLink]="['/profile/register']" [queryParams]="{returnUrl: returnUrl}" class="btn btn-link">Register</a>
         </div>
     </form>
 </div>

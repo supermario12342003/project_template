@@ -11,6 +11,14 @@
 			  <li role="presentation">
 			  	<a [routerLink]="['changepassword']"  routerLinkActive="active" class="btn btn-link">Change Password</a>
 			  </li>
+			  <li role="presentation">
+			  	<a [routerLink]="['shop', 'list']"  routerLinkActive="active" class="btn btn-link">Shops</a>
+			  </li>
+			  <li role="presentation">
+			  	<a [routerLink]="['/profile/shop', 'add']" routerLinkActive="active" class="btn btn-link">
+			  		Add Shop
+			  	</a>
+			  </li>
 			  <!--
 			  <li role="presentation">
 			  	<a [routerLink]="['logout']"  routerLinkActive="active" class="btn btn-link">Logout</a>
@@ -18,6 +26,7 @@
 			  -->
 			</ul>
 		</div>
+	</div>
 </div>
 <router-outlet>
 </router-outlet>

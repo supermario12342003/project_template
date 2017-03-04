@@ -1,0 +1,5 @@
+Your shop details has been updated by us.
+
+Click here to see it:
+
+{{link | safe}}

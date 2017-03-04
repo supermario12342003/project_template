@@ -4,18 +4,8 @@ import { HttpService }                    from './http.service'
 import { Headers, Response }              from '@angular/http';
 import { Router }         from '@angular/router';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { User }            from '../_models/user.model';
 import 'rxjs/add/operator/map';
-
-export class User {
-  id: number;
-  email: string;
-  phone: number;
-  first_name: string;
-  last_name: string;
-  photo: string;
-  date_joined: string;
-  address: string;
-}
 
 @Injectable()
 export class AuthenticationService {
@@ -96,6 +86,16 @@ export class AuthenticationService {
     changePassword(user_id:number, old_password:string, new_password:string) {
         return this.http.post('api/accounts/' + user_id + '/changepassword/', 
             JSON.stringify({old_password: old_password, new_password: new_password}));
+    }
+
+    forgotPassword(email:string) {
+        return this.http.post('api/accounts/forgotpassword/', 
+            JSON.stringify({email: email}));
+    }
+
+    resetPassword(email:string, reset_token:string, new_password:string) {
+        return this.http.post('api/accounts/resetpassword/', 
+            JSON.stringify({email: email, reset_token: reset_token, new_password: new_password}));
     }
 
     isAuthenticated():boolean {

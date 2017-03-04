@@ -9,18 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var PageNotFoundComponent = (function () {
-    function PageNotFoundComponent() {
+var HighlightDirective = (function () {
+    function HighlightDirective(el) {
+        el.nativeElement.style.backgroundColor = 'yellow';
     }
-    PageNotFoundComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: '404.component.html',
-        }), 
-        __metadata('design:paramtypes', [])
-    ], PageNotFoundComponent);
-    return PageNotFoundComponent;
+    HighlightDirective = __decorate([
+        core_1.Directive({ selector: '[myHighlight]' }), 
+        __metadata('design:paramtypes', [core_1.ElementRef])
+    ], HighlightDirective);
+    return HighlightDirective;
 }());
-exports.PageNotFoundComponent = PageNotFoundComponent;
-//# sourceMappingURL=404.component.js.map
+exports.HighlightDirective = HighlightDirective;
+//# sourceMappingURL=highlight.directive.js.map

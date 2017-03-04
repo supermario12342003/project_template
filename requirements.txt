@@ -5,6 +5,7 @@ Django==1.10.5
 django-angular==0.8.4
 django-cors-headers==2.0.2
 django-filter==1.0.1
+django-smtp-ssl==1.0
 django-storages==1.5.2
 djangorestframework==3.5.3
 gunicorn==19.6.0

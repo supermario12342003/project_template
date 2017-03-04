@@ -10,19 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var index_1 = require('../_services/index');
-var ProfileNavComponent = (function () {
-    function ProfileNavComponent() {
-    }
-    ProfileNavComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            templateUrl: 'profile-nav.component.html',
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ProfileNavComponent);
-    return ProfileNavComponent;
-}());
-exports.ProfileNavComponent = ProfileNavComponent;
 var ProfileComponent = (function () {
     function ProfileComponent(authenticationService, alertService) {
         this.authenticationService = authenticationService;

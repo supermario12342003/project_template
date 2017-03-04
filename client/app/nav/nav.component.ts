@@ -1,6 +1,8 @@
 import { Component }        					from '@angular/core';
-import { AuthenticationService, User }			from '../_services/index';
-import {Subscription}									from 'rxjs/Subscription';
+import { AuthenticationService }			from '../_services/index';
+import { Subscription }							from 'rxjs/Subscription';
+import { User }									from '../_models/user.model';
+
 
 @Component({
     moduleId: module.id,

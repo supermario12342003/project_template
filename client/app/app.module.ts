@@ -11,22 +11,25 @@ import { NavComponent }             from "./nav/nav.component";
 import { LandingComponent }         from "./landing/landing.component";
 import { PageNotFoundComponent }    from "./page-not-found/page-not-found.component";
 import { AlertComponent }           from './_directives/index';
+import { AccountModule }            from "./account/account.module"
+import { AlertService, HttpServiceProvider, XSRFStrategyProvider }                  from './_services/index';
+import { CookieService } from 'angular2-cookie/core';
 import { AuthGuard }                from './_guards/auth.guard';
-import {CookieService} from 'angular2-cookie/core';
-import { AlertService, AuthenticationService,
-  AccountService, HttpServiceProvider, XSRFStrategyProvider }                  from './_services/index';
+import {  AuthenticationService }    from './_services/authentication.service'
+import { SharedModule }              from './shared/shared.module'
+import { ShopModule }              from './shop/shop.module'
+import { ProductModule }              from './product/product.module'
 
-import { ProfileComponent, LoginComponent,
-  RegisterComponent, EditProfileComponent,
-  LogoutComponent, ProfileNavComponent, ChangePasswordComponent }               from './account/index';
+
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
     AppRoutingModule,
+    AccountModule,
+    SharedModule,
+    ShopModule,
+    ProductModule,
   ],
   declarations: [
     AppComponent,
@@ -34,20 +37,11 @@ import { ProfileComponent, LoginComponent,
     LandingComponent,
     PageNotFoundComponent,
     AlertComponent,
-    ProfileComponent,
-    LoginComponent,
-    RegisterComponent,
-    EditProfileComponent,
-    LogoutComponent,
-    ProfileNavComponent,
-    ChangePasswordComponent,
   ],
   providers: [
-    AuthGuard,
-    AlertService,
-    CookieService,
     AuthenticationService,
-    AccountService,
+    CookieService,
+    AlertService,
     HttpServiceProvider,
     XSRFStrategyProvider
   ],

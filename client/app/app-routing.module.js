@@ -12,20 +12,15 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var landing_component_1 = require("./landing/landing.component");
 var page_not_found_component_1 = require("./page-not-found/page-not-found.component");
-var index_1 = require("./account/index");
-var auth_guard_1 = require("./_guards/auth.guard");
+var shop_component_1 = require("./shop/shop.component");
+var add_component_1 = require("./product/add.component");
+var product_component_1 = require("./product/product.component");
 var routes = [
     { path: '', component: landing_component_1.LandingComponent },
-    { path: 'login', component: index_1.LoginComponent },
-    { path: 'register', component: index_1.RegisterComponent },
-    { path: 'profile', component: index_1.ProfileNavComponent, canActivate: [auth_guard_1.AuthGuard],
-        children: [
-            { path: 'edit', component: index_1.EditProfileComponent, },
-            { path: 'changepassword', component: index_1.ChangePasswordComponent, },
-            { path: '', component: index_1.ProfileComponent, },
-            { path: 'logout', component: index_1.LogoutComponent },
-        ]
-    },
+    { path: 'shop/:id', component: shop_component_1.ShopComponent },
+    { path: 'shop/:shop_id/add_product', component: add_component_1.AddComponent },
+    { path: 'shop/:shop_id/product/:product_id', component: product_component_1.ProductComponent },
+    { path: 'profile', loadChildren: 'app/account/account.module#AccountModule' },
     { path: '**', component: page_not_found_component_1.PageNotFoundComponent },
 ];
 var AppRoutingModule = (function () {

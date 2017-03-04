@@ -1,12 +1,7 @@
 import { Component }        from '@angular/core';
-import { AuthenticationService, AlertService, User}	from '../_services/index';
+import { AuthenticationService, AlertService}	from '../_services/index';
+import { User }									from '../_models/user.model';
 
-@Component({
-    moduleId: module.id,
-    templateUrl: 'profile-nav.component.html',
-})
-export class ProfileNavComponent {
-}
 
 @Component({
     moduleId: module.id,

@@ -20,10 +20,14 @@ from django.conf.urls.static import static
 from django.views.static import serve
 from core.views import SampleView, AngularApp, NgTemplateView
 from account.urls import router as account_router
+from product.urls import router as product_router
+from shop.urls import router as shop_router
 from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.registry.extend(account_router.registry)
+router.registry.extend(shop_router.registry)
+router.registry.extend(product_router.registry)
 
 ngurls = [
     url(r'^$', SampleView.as_view(), name='sample'),

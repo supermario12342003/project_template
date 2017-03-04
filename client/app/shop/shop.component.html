@@ -1,0 +1,19 @@
+<div class="col-md-6 col-md-offset-3">
+	<h2>{{shop.name}}</h2>
+	<div>category : {{shop.category_name}}</div>
+	<div>address : {{shop.address}}</div>
+	<div>lat : {{shop.lat}}</div>
+	<div>lng : {{shop.lng}}</div>
+	<a [routerLink]="['/shop', shop.id, 'add_product']">
+		<button class="btn btn-primary">Add Product</button>
+	</a>
+
+	<ul class="list-group">
+		<a *ngFor="let product of products" [routerLink]="['/shop/', shop.id, 'product', product.id]">
+		  <li class="list-group-item">
+		  	name: {{product.name}}  validated: {{product.validated}}
+		  	<button class='btn btn-default'>delete</button>
+		  </li>
+		</a>
+	</ul>
+</div>

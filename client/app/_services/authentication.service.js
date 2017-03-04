@@ -13,12 +13,6 @@ var http_service_1 = require('./http.service');
 var router_1 = require('@angular/router');
 var BehaviorSubject_1 = require('rxjs/BehaviorSubject');
 require('rxjs/add/operator/map');
-var User = (function () {
-    function User() {
-    }
-    return User;
-}());
-exports.User = User;
 var AuthenticationService = (function () {
     function AuthenticationService(http, router) {
         this.http = http;
@@ -91,6 +85,12 @@ var AuthenticationService = (function () {
     };
     AuthenticationService.prototype.changePassword = function (user_id, old_password, new_password) {
         return this.http.post('api/accounts/' + user_id + '/changepassword/', JSON.stringify({ old_password: old_password, new_password: new_password }));
+    };
+    AuthenticationService.prototype.forgotPassword = function (email) {
+        return this.http.post('api/accounts/forgotpassword/', JSON.stringify({ email: email }));
+    };
+    AuthenticationService.prototype.resetPassword = function (email, reset_token, new_password) {
+        return this.http.post('api/accounts/resetpassword/', JSON.stringify({ email: email, reset_token: reset_token, new_password: new_password }));
     };
     AuthenticationService.prototype.isAuthenticated = function () {
         return (localStorage.getItem('authToken') != null);
